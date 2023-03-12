@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.sp.reactive.boilerplate.commons.autoconfigure.ErrorMessageSourceAutoConfiguration,\
+com.sp.reactive.boilerplate.commons.autoconfigure.ModelMapperAutoConfiguration,\
+com.sp.reactive.boilerplate.commons.autoconfigure.ValidatorAutoConfiguration

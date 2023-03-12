@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.sp.reactive.boilerplate.security.BoilerplateSecurityAutoConfiguration
