@@ -76,7 +76,7 @@ public class BoilerplateSecurityAutoConfiguration {
   @Bean("BoilerplateSecurityCorsFilter")
   public CorsWebFilter corsFilter(
       @Qualifier("BoilerplateSecurityCorsConfiguration") CorsConfigurationSource corsConfigurationSource) {
-    log.debug("configuring PulseCorsFilter");
+    log.debug("configuring BoilerplateSecurityCorsFilter");
     String allowedUrls = env.getProperty("boilerplate.cors.allowed-origins");
     Objects.requireNonNull(allowedUrls,
         "property {boilerplate.cors.allowed-origins} is not configured");
@@ -178,7 +178,7 @@ public class BoilerplateSecurityAutoConfiguration {
 
   @Bean
   @Order(Ordered.HIGHEST_PRECEDENCE + 2)
-  public SecurityWebFilterChain whitelistPulseLogin(ServerHttpSecurity http, Tracer tracer) {
+  public SecurityWebFilterChain whitelistBoilerplateLogin(ServerHttpSecurity http, Tracer tracer) {
     return http.securityMatcher(
             new PathPatternParserServerWebExchangeMatcher("/v1/auth/login", HttpMethod.POST))
         .authorizeExchange(exchanges -> exchanges.anyExchange().permitAll())
@@ -193,7 +193,7 @@ public class BoilerplateSecurityAutoConfiguration {
 
   @Bean
   @Order(Ordered.HIGHEST_PRECEDENCE + 3)
-  public SecurityWebFilterChain whitelistPulseSignup(ServerHttpSecurity http, Tracer tracer) {
+  public SecurityWebFilterChain whitelistBoilerplateSignup(ServerHttpSecurity http, Tracer tracer) {
     return http.securityMatcher(
             new PathPatternParserServerWebExchangeMatcher("/v1/auth/signup", HttpMethod.POST))
         .authorizeExchange(exchanges -> exchanges.anyExchange().permitAll())
